@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Women in Tech - Enquire</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-somehash..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../CSS/styles.css" />
+</head>
+<body>
+
+  <header>
+    <img src="../assets/Logo_South-Africa-1280x1280.png" alt="Women in Tech Logo" class="logo" />
+    <h1>Women in Tech</h1>
+    <p>Empowering Women in the Technology Industry</p>
+  </header>
+
+  <nav>
+    <a href="../index.html#welcome-section">Home</a>
+    <a href="about.html#about-section">About Us</a>
+    <a href="vision.html#vision-section">Vision & Mission</a>
+    <a href="service.html#service-section">Services</a>
+    <a href="contact.html#contact-section">Contact Us</a>
+    <a href="enquire.html#enquire-section"class="active">Enquire Us</a>
+  </nav>
+
+  <main class="content-layout">
+     <section id="enquire-section" class="main-content">
+      <h2>Enquire</h2>
+      <p>Have questions or want to get involved? Fill out the form below:</p>
+      
+      <!-- ✅ Formspree form -->
+<form id="enquireForm" action="https://formspree.io/f/mnngqywv" method="POST" class="contact-form">
+
+  <label for="title">Title:</label><br />
+  <input type="text" id="title" name="title" placeholder="Your title" required /><br /><br />
+
+  <label for="name">Full Name:</label><br />
+  <input type="text" id="name" name="name" placeholder="Your full name" required /><br /><br />
+
+  <label for="email">Email:</label><br />
+  <input type="email" id="email" name="email" placeholder="Your email address" required /><br /><br />
+
+  <label for="time">Preferred Contact Time:</label><br />
+  <input type="text" id="time" name="time" placeholder="E.g., Morning, Afternoon" required /><br /><br />
+
+  <label for="message">Message:</label><br />
+  <textarea id="message" name="message" rows="5" placeholder="Write your message" required></textarea><br /><br />
+
+  <button type="submit" class="hero-btn">Submit</button>
+</form>
+      <!-- Success message (hidden by default) -->
+<div id="formSuccess" style="display:none; margin-top:20px; padding:15px; background:#e6ffe6; border:1px solid #00b300; border-radius:8px;">
+  <h3>✅ Thanks!</h3>
+  <p>Your enquiry was submitted successfully. We’ll get back to you soon.</p>
+</div>
+
+<script>
+  const form = document.getElementById("enquireForm");
+  const successDiv = document.getElementById("formSuccess");
+
+  form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.reset();               // clear form
+        form.style.display = "none"; // hide form
+        successDiv.style.display = "block"; // show success
+      } else {
+        alert("❌ Oops! Something went wrong submitting your form.");
+      }
+    } catch (error) {
+      alert("⚠️ Network error. Please try again later.");
+    }
+  });
+</script>
+
+    </section>
+
+    <aside class="sidebar">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="about.html#about-section">About Us</a>
+        <li><a href="service.html#service-section">Services</a></li>
+        <li><a href="enquire.html#enquire-section">Enquire Us</a></li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Women in Tech South Africa. All rights reserved.</p>
+   <div class="social-icons">
+  <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+    <i class="fab fa-twitter"></i>
+  </a>
+  <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+  <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+  </footer>
+<script src="../JS/scroll.js"></script>
+</body>
+</html>
